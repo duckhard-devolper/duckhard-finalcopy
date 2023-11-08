@@ -1,6 +1,9 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
     tiles.setWallAt(tiles.getTileLocation(0, 0), true)
 })
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
 scene.setBackgroundImage(img`
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666cccc
     666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666bcbc
@@ -144,7 +147,8 @@ let mySprite = sprites.create(img`
     . . . c c c c c c c c b b . . . 
     `, SpriteKind.Player)
 controller.moveSprite(mySprite)
-tileUtil.setWalls(assets.tile`myTile`, true)
+tileUtil.setWalls(assets.tile`myTile7`, true)
 scene.cameraFollowSprite(mySprite)
-mySprite.setVelocity(10, 100)
-tiles.setTileAt(location, assets.tile`myTile1`)
+game.onUpdateInterval(200, function () {
+    mySprite.setVelocity(0, 180)
+})
